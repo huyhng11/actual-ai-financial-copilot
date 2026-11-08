@@ -1,0 +1,4 @@
+# Transient active-feature pointer written by create-new-feature and
+# get_feature_paths; session-local and must not be committed across branches.
+feature.json
+extensions/*/local-config.yml

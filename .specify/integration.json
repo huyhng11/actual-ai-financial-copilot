@@ -1,0 +1,15 @@
+{
+  "default_integration": "agy",
+  "installed_integrations": ["agy", "claude"],
+  "integration": "agy",
+  "integration_settings": {
+    "agy": {
+      "invoke_separator": "-",
+      "script_type": "sh"
+    },
+    "claude": {
+      "invoke_separator": "-",
+      "script_type": "sh"
+    }
+  }
+}

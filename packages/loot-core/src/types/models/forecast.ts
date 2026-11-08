@@ -1,0 +1,55 @@
+import type { RuleConditionEntity } from './rule';
+
+export type ForecastSource = 'schedules' | 'tracking-budget';
+
+export type ForecastSeries = {
+  id: string;
+  name: string;
+  accounts?: string[];
+  conditions: RuleConditionEntity[];
+  conditionsOp: 'and' | 'or';
+};
+
+export type ForecastDataPoint = {
+  date: string;
+  balance: number;
+  accountId: string;
+  accountName: string;
+  transactions: ForecastTransaction[];
+  /** Net recorded activity for this day; absent for tracking-budget forecasts. */
+  recordedAmount?: number;
+};
+
+export type ForecastTransaction = {
+  amount: number;
+  payee: string | null;
+  scheduleId: string;
+  scheduleName: string;
+  /** Original scheduled date, before rules can move either transfer leg. */
+  occurrenceDate?: string;
+  isTransfer?: boolean;
+  isAccountless?: boolean;
+};
+
+export type BalanceForecastConfig = {
+  id: string;
+  name: string;
+  forecastMonths: number;
+  selectedAccounts: string[];
+  showCombined: boolean;
+  showIndividual: boolean;
+  source?: ForecastSource;
+  tombstone?: boolean;
+};
+
+export type ForecastResult = {
+  dataPoints: ForecastDataPoint[];
+  lowestBalance: {
+    date: string;
+    balance: number;
+    accountId: string;
+    accountName: string;
+  };
+  forecastStartDate: string;
+  forecastEndDate: string;
+};

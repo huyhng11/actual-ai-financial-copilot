@@ -1,0 +1,14 @@
+{
+  "ai": "agy",
+  "ai_commands_dir": null,
+  "ai_skills": true,
+  "branch_numbering": "sequential",
+  "commit_message": null,
+  "feature_numbering": "sequential",
+  "git_enabled": true,
+  "here": true,
+  "integration": "agy",
+  "preset": null,
+  "script": "sh",
+  "speckit_version": "1.0.14.dev0"
+}
